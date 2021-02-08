@@ -1,35 +1,51 @@
-function reverse(str) {
-     if (str.length === 0) {
-          return ''
-     } else {
-          let revStroke = ''
-          return revStroke + str[str.length - 1] + reverse(str.substring(0, str.length - 1))
-     }
+function Student(name, surname, bdayYear) {
+     this.name = name,
+          this.surname = surname,
+          this.bdayYear = bdayYear,
+          this.attendance = [],
+          this.rating = [],
+
+          this.present = function () {
+               if (this.attendance.length < 30) {
+
+                    return this.attendance = [{ status: true }, ...this.attendance]
+               }
+
+          },
+          this.absent = function () {
+               if (this.attendance.length < 30) {
+
+                    return this.attendance = [{ status: false }, ...this.attendance]
+               }
+          },
+          this.mark = function (number) {
+               if (this.rating.length < 30 && number > 0 && number <= 10) {
+                    return this.rating = [{ yourRating: number }, ...this.rating]
+               }
+          },
+          this.summary = function () {
+               const sum = this.rating.reduce(function (acc, el) {
+
+                    return acc += el.yourRating
+               }, 0)
+               let midValue = sum / this.rating.length;
+
+
+               const ourpresent = this.attendance.filter(function (el) {
+                    return el.status === true
+               }, 0)
+               const ratingStudent = ourpresent.length / this.attendance.length
+
+               if ((midValue >= 9) && (ratingStudent >= 0.9)) {
+                    return alert('Ути какой молодчинка!')
+               } else if ((midValue <= 9) || (ratingStudent <= 0.9)) {
+                    return alert('Норм, но можно лучше')
+               } else {
+                    alert("Редиска!")
+               }
+
+          }
+
 }
-
-const myArr = [1, 2, 3, 4, 5, 6, 7]
-
-
-
-
-
-
-function binar(arr, el, left, right) {
-     if (right >= left) {
-          const mid = Math.floor((left + right) / 2);
-          if (arr[mid] === el) {
-               return mid
-          } else if (el < arr[mid]) {
-               return binar(arr, el, left, mid - 1)
-          } else  {
-               return binar(arr, el, mid + 1, right)
-          } 
-     } else {
-          return -1
-     }
-
-
-
-
-}
-console.log(binar(myArr, 4, 0, myArr.length - 1))
+const serg = new Student('serg', 'petrov', 1977);
+console.log(serg)
