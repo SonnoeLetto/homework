@@ -10,7 +10,7 @@ Student.prototype = {
      get absent() {
           const findVal = this.attendance.findIndex((el) => el === undefined)
           if (findVal === -1) {
-               return console.log('Массив переполнен')
+               throw new Error('Массив переполнен')
           } else {
 
                return this.attendance[findVal] = false;
@@ -19,7 +19,7 @@ Student.prototype = {
      get present() {
           const findVal = this.attendance.findIndex((el) => el === undefined)
           if (findVal === -1) {
-               return console.log('Массив переполнен')
+               throw new Error('Массив переполнен')
           } else {
                return this.attendance[findVal] = true;
           }
@@ -29,7 +29,7 @@ Student.prototype = {
           const findVal = this.rating.findIndex((el) => el === undefined)
 
           if (findVal === -1) {
-               return console.log('Массив переполнен')
+               throw new Error('Массив переполнен')
           } else {
                return this.rating[findVal] = number
           }
