@@ -1,3 +1,4 @@
+
 function Student(name, surname, bdayYear) {
      this.name = name,
           this.surname = surname,
@@ -48,11 +49,11 @@ Student.prototype = {
           const ratingStudent = ourpresent.length / this.attendance.length
 
           if ((midValue >= 9) && (ratingStudent >= 0.9)) {
-               return alert('Ути какой молодчинка!')
+               return 'Ути какой молодчинка!'
           } else if ((midValue <= 9) && (ratingStudent <= 0.9)) {
-               return alert("Редиска!")
+               return 'Редиска!'
           } else {
-               return alert('Норм, но можно лучше')
+               return 'Норм, но можно лучше'
           }
 
      }
